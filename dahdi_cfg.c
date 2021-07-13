@@ -652,13 +652,13 @@ static int chanconfig(char *keyword, char *args)
 				cc[x].sigtype = DAHDI_SIG_FXOGS;
 				sig[x] = sigtype_to_str(cc[x].sigtype);
 			} else if (!strcasecmp(keyword, "fxoks")) {
-				cc[x].sigtype = DAHDI_SIG_RPO;
+				cc[x].sigtype = DAHDI_SIG_FXOKS;
 				sig[x] = sigtype_to_str(cc[x].sigtype);
 			} else if (!strcasecmp(keyword, "rpo")) {
-				cc[x].sigtype = DAHDI_SIG_RPT;
+				cc[x].sigtype = DAHDI_SIG_RPO;
 				sig[x] = sigtype_to_str(cc[x].sigtype);
 			} else if (!strcasecmp(keyword, "rpt")) {
-				cc[x].sigtype = DAHDI_SIG_FXOKS;
+				cc[x].sigtype = DAHDI_SIG_RPT;
 				sig[x] = sigtype_to_str(cc[x].sigtype);
 			} else if (!strcasecmp(keyword, "cas") || !strcasecmp(keyword, "user")) {
 				if (parse_idle(&cc[x].idlebits, idle))
@@ -1423,6 +1423,8 @@ static struct handler {
 	{ "fxols", chanconfig },
 	{ "fxogs", chanconfig },
 	{ "fxoks", chanconfig },
+	{ "rpo", chanconfig },
+	{ "rpt", chanconfig },
 	{ "rawhdlc", chanconfig },
 	{ "nethdlc", chanconfig },
 	{ "fcshdlc", chanconfig },
