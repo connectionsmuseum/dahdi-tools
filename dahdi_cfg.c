@@ -252,6 +252,10 @@ static const char *sigtype_to_str(const int sig)
 		return "FXO Groundstart";
 	case DAHDI_SIG_FXOKS:
 		return "FXO Kewlstart";
+	case DAHDI_SIG_RPO:
+		return "Revertive Pulse Originating";
+	case DAHDI_SIG_RPT:
+		return "Revertive Pulse Terminating";
 	case DAHDI_SIG_CAS:
 		return "CAS / User";
 	case DAHDI_SIG_DACS:
@@ -648,6 +652,12 @@ static int chanconfig(char *keyword, char *args)
 				cc[x].sigtype = DAHDI_SIG_FXOGS;
 				sig[x] = sigtype_to_str(cc[x].sigtype);
 			} else if (!strcasecmp(keyword, "fxoks")) {
+				cc[x].sigtype = DAHDI_SIG_RPO;
+				sig[x] = sigtype_to_str(cc[x].sigtype);
+			} else if (!strcasecmp(keyword, "rpo")) {
+				cc[x].sigtype = DAHDI_SIG_RPT;
+				sig[x] = sigtype_to_str(cc[x].sigtype);
+			} else if (!strcasecmp(keyword, "rpt")) {
 				cc[x].sigtype = DAHDI_SIG_FXOKS;
 				sig[x] = sigtype_to_str(cc[x].sigtype);
 			} else if (!strcasecmp(keyword, "cas") || !strcasecmp(keyword, "user")) {
